@@ -54,8 +54,10 @@
     };
   };
 
-  # TODO in order to use this we have to get polkit to cross compile, because
-  # we need/want rtkit.
+  # Adjust the allowedIpRanges and the extraConfig for your own network and
+  # pulseaudio configuration. The module-tunnel-sink is useful if you want to
+  # send the audio to a machine that has a better sound device, since rumour has
+  # it the one on the pi isn't very good.
   hardware.pulseaudio = {
     enable = true;
     tcp = {
@@ -63,7 +65,6 @@
       anonymousClients = {
         allowedIpRanges = [
           "127.0.0.1"
-          # Adjust for your own subnet configuration.
           "192.168.1.0/24"
         ];
       };
